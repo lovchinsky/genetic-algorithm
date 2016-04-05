@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="885.0" snapToPixel="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="dev.lovchinsky.genetic.Controller">
+  <children>
+    <GridPane layoutX="14.0" layoutY="14.0">
+      <children>
+        <Label focusTraversable="true" text="Створіть нові міста:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+          <GridPane.margin>
+            <Insets bottom="7.0" />
+          </GridPane.margin>
+        </Label>
+        <TextField fx:id="numberOfCitiesText" mouseTransparent="false" pickOnBounds="false" prefWidth="200.0" promptText="Введіть кількість міст" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Button id="generateCities" mnemonicParsing="false" onAction="#generateCities" text="Згенерувати" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label text="Введіть початкові умови:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="sizeOfPopulationText" prefWidth="200.0" promptText="Введіть величину популяції" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="numberOfIterationText" prefWidth="200.0" promptText="Введіть кількість ітерацій" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <Label text="Виберіть оператор селекції:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <RadioButton fx:id="annealingSelector" mnemonicParsing="false" selected="true" text="Елітарний відбір" GridPane.columnIndex="0" GridPane.rowIndex="7">
+          <toggleGroup>
+            <ToggleGroup fx:id="selectionToggle" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rouletteWheelSelector" mnemonicParsing="false" selected="false" text="Метод рулетки" toggleGroup="$selectionToggle" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <RadioButton fx:id="tournamentSelector" mnemonicParsing="false" selected="false" text="Турнірний відбір" toggleGroup="$selectionToggle" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+        <Label text="Виберіть оператор вибору батьків:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+        <RadioButton fx:id="inbreeding" mnemonicParsing="false" selected="true" text="Інбридинг" GridPane.columnIndex="0" GridPane.rowIndex="11">
+          <toggleGroup>
+            <ToggleGroup fx:id="choosingToggle" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="outbreeding" mnemonicParsing="false" text="Аутбридинг" toggleGroup="$choosingToggle" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+        <RadioButton fx:id="panximia" mnemonicParsing="false" text="Панксімія" toggleGroup="$choosingToggle" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+        <Label text="Виберіть оператор схрещування:" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+        <RadioButton fx:id="reducedSurrogateCrossover" mnemonicParsing="false" selected="true" text="Кросовер зі зменшенням заміни" GridPane.columnIndex="0" GridPane.rowIndex="15">
+          <toggleGroup>
+            <ToggleGroup fx:id="crossingToggle" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="singlePointCrossover" mnemonicParsing="false" text="Одноточковий кросовер" toggleGroup="$crossingToggle" GridPane.columnIndex="0" GridPane.rowIndex="16" />
+        <RadioButton fx:id="twoPointCrossover" mnemonicParsing="false" text="Двоточковий кросовер" toggleGroup="$crossingToggle" GridPane.columnIndex="0" GridPane.rowIndex="17" />
+        <Label text="Встановіть параметри мутації:" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+        <Slider fx:id="probabilityOfMutationSlider" max="1.0" GridPane.columnIndex="0" GridPane.rowIndex="19" />
+        <RadioButton fx:id="singlePointMutator" mnemonicParsing="false" selected="true" text="Одноточкова мутація" GridPane.columnIndex="0" GridPane.rowIndex="20">
+          <toggleGroup>
+            <ToggleGroup fx:id="mutationToggle" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="greedyMutator" mnemonicParsing="false" text="Жадібна мутація" toggleGroup="$mutationToggle" GridPane.columnIndex="0" GridPane.rowIndex="21" />
+        <Button mnemonicParsing="false" onAction="#navigate" text="Прокласти маршрут" GridPane.columnIndex="0" GridPane.rowIndex="22">
+          <GridPane.margin>
+            <Insets top="10.0" />
+          </GridPane.margin>
+        </Button>
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+      </columnConstraints>
+      <padding>
+        <Insets right="16.0" />
+      </padding>
+      <rowConstraints>
+        <RowConstraints fillHeight="true" maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="24.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+    <Pane fx:id="displayPane" layoutX="243.0" layoutY="21.0" prefHeight="628.0" prefWidth="628.0" style="-fx-background-color: white">
+      <padding>
+        <Insets />
+      </padding>
+    </Pane>
+  </children>
+</AnchorPane>
